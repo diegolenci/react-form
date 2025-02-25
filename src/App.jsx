@@ -5,7 +5,12 @@ function App() {
   const [posts, setPosts] = useState([])
   const [newPost, setNewPost] = useState('')
 
-  
+  const handleNewPost = (e) => {
+    setNewPost(e.target.value)
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault()
+  }
 
   return (
     <>
