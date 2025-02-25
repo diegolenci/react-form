@@ -5,6 +5,8 @@ function App() {
   const [posts, setPosts] = useState([])
   const [newPost, setNewPost] = useState('')
 
+  
+
   return (
     <>
       <div className="container">
@@ -18,6 +20,25 @@ function App() {
 
           <button className="btn btn-primary">Aggiungi post</button>
         </form>
+
+        <h2>Lista posts</h2>
+        {
+          posts.length > 0 ? (
+            <ul>
+              {
+                posts.map( (element, index) => {
+                  return (
+                    <li key={index}>
+                      {element}
+                    </li>
+                  )
+                })
+              }
+            </ul>
+          ) : (
+            <h3>Non ci sono posts</h3>
+          )
+        }
       </div>
     </>
   )
