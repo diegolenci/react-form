@@ -10,6 +10,8 @@ function App() {
   }
   const handleSubmit = (e) => {
     e.preventDefault()
+    setPosts( () => [...posts, newPost] )
+    setNewPost('')
   }
 
   return (
