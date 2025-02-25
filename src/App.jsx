@@ -1,16 +1,22 @@
 import { useState } from "react"
 
 function App() {
-
+  //posts: array iniziale vuoto
   const [posts, setPosts] = useState([])
   const [newPost, setNewPost] = useState('')
 
+  //si occupa di gestire il campo input
   const handleNewPost = (e) => {
+    //funzione che aggiorna lo stato iniziale della variabile newpost
     setNewPost(e.target.value)
   }
+  //entra in funzione quando l'utente clicca sul bottone d'invio
   const handleSubmit = (e) => {
+    //evita di ricaricare la pagina
     e.preventDefault()
+    //aggiunge nuovo array pieno
     setPosts( () => [...posts, newPost] )
+    //svuota il campo input
     setNewPost('')
   }
 
@@ -30,9 +36,11 @@ function App() {
 
         <h2>Lista posts</h2>
         {
+          //controlla se la lunghezza dell'array post è magg di 0
           posts.length > 0 ? (
             <ul>
               {
+                //se ci sono dei post li mostra
                 posts.map( (element, index) => {
                   return (
                     <li key={index}>
@@ -43,7 +51,8 @@ function App() {
               }
             </ul>
           ) : (
-            <h3>Non ci sono posts</h3>
+            //altrimenti compare questo messaggio
+            <h3 className="text-danger">Non ci sono posts</h3>
           )
         }
       </div>
